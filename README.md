@@ -1,42 +1,34 @@
-<pre>
-SFIP-初衷:模仿、赞同、继承
-
-模仿
+# SFIP-初衷:模仿、赞同、继承
+## 模仿
     模仿“微服务相关的两个关键理念：支持独立性，支持快速演化”
 SFIP将一个服务功能划分成多个更小的bean组分布在同一进程但相对独立的spring容器中,有利于更好的团队分组分工，并且有很强的可替换性。
-
-赞同
+## 赞同
     赞同分布式计算第一定律：“如果不是真正需要就不要让系统分布式”
 比如逻辑层和访问数据代理层的分布，就会让简单树状关系变成复杂网状关系。
 SFIP要将星状调用简化为树状态调用
-
-继承
+## 继承
     继承ESB,ESB有其历史贡献,比如服务编排，快速开发
-    
-    
-
-一、创建模块
+## 使用 
+### 一、创建模块
 服务JAVA项目构建(这里以命令行为例，eclipse等环境更方便):
 mvn  archetype:generate -DarchetypeGroupId=com.github.yihaijun -DarchetypeArtifactId=sfip-app-archetype -DarchetypeVersion=1.0.6 -DgroupId=priv.yhj.test -DartifactId=app-test -Dversion=1.0.1 -DinteractiveMode=false -DarchetypeCatalog=local -X -e
 然后cd app-test(进到你的artifactId对应目录)mvn install
 就可以看到target目录下有了app-test-1.0.1.zip
-
-二、填加业务配置和代码
+### 二、填加业务配置和代码
 模块间调用spring配置举例:
+<pre>
 <sfip:callOtherAppBean id="collectorConfigChangeNotificationService"
 appName="eagle-app-oap*" beanName="collectorConfigChangeNotificationServiceImpl"
 interface="com.bestpay.eagle.common.service.CollectorConfigChangeNotificationService" />
-
-三、部署模块
+### 三、部署模块
 上传上述zip文件到sfip-standalone-1.0.6/apps 目录
-
-附一:sfip装启停查
+## 附录
+### 附一:sfip装启停查
 装:https://pan.baidu.com/s/1smauLBn  密码：ispl下载,unzip即可
 启:sfip-standalone-1.0.6/bin/sfipStart.sh
 停:sfip-standalone-1.0.6/bin/sfipStop.sh
 查:sfip-standalone-1.0.6/bin/sfipQuery.sh
-
-附二:sfip几个小特点
+### 附二:sfip几个小特点
 1、各种小程序或脚本也可配置成服务,服务可以单独热部署
 2、可动态配置调用其它外部服务的通信方式，版本
 3、提供方便的服务功能和性能测试工具,故障诊断工具
