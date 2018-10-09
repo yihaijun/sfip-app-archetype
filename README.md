@@ -26,6 +26,8 @@ mvn  archetype:generate -DarchetypeGroupId=com.github.yihaijun -DarchetypeArtifa
 <sfip:callOtherAppBean id="collectorConfigChangeNotificationService"
 appName="eagle-app-oap*" beanName="collectorConfigChangeNotificationServiceImpl"
 interface="com.bestpay.eagle.common.service.CollectorConfigChangeNotificationService" />
+
+三、部署模块
 上传上述zip文件到sfip-standalone-1.0.6/apps 目录
 
 附一:sfip装启停查
