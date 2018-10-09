@@ -16,19 +16,23 @@ mvn  archetype:generate -DarchetypeGroupId=com.github.yihaijun -DarchetypeArtifa
 就可以看到target目录下有了app-test-1.0.1.zip
 ### 二、填加业务配置和代码
 模块间调用spring配置举例:
-<pre>
+(```)
 <sfip:callOtherAppBean id="collectorConfigChangeNotificationService"
 appName="eagle-app-oap*" beanName="collectorConfigChangeNotificationServiceImpl"
 interface="com.bestpay.eagle.common.service.CollectorConfigChangeNotificationService" />
+(```)
 ### 三、部署模块
 上传上述zip文件到sfip-standalone-1.0.6/apps 目录
 ## 附录
 ### 附一:sfip装启停查
+<pre>
 装:https://pan.baidu.com/s/1smauLBn  密码：ispl下载,unzip即可
 启:sfip-standalone-1.0.6/bin/sfipStart.sh
 停:sfip-standalone-1.0.6/bin/sfipStop.sh
 查:sfip-standalone-1.0.6/bin/sfipQuery.sh
+</pre>
 ### 附二:sfip几个小特点
+<pre>
 1、各种小程序或脚本也可配置成服务,服务可以单独热部署
 2、可动态配置调用其它外部服务的通信方式，版本
 3、提供方便的服务功能和性能测试工具,故障诊断工具
